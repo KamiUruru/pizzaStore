@@ -1,0 +1,44 @@
+<div class="ui items">
+    <div class="products">
+        <div ng-repeat="product in pz.products">
+            <div class="item row">
+                <div class="image col-xs-5 col-sm-4 col-md-3 col-lg-2">
+                    <img src="{{product.image}}" class="img-responsive" alt=""/>
+                </div>
+                <div class="content col-xs-7 col-sm-8 col-md-9 col-lg-10">
+                    <h3><a class="header" href="#/products/{{product.id}}">{{product.name}}</a></h3>
+                    <div class="extra">
+                        <p><strong>Price: </strong>{{product.cost}} ₽ / each</p>
+                        <p><strong>Quantity: </strong>{{product.number}}</p>
+                        <p class="total-sum"><strong>Total: </strong><span class="red"
+                           ng-init="itemTotal = product.cost * product.number; pz.total = pz.total + itemTotal"
+                        >{{itemTotal}} ₽
+                        </span>
+                        </p>
+                        <button type="button" class="ui inverted red button" ng-click="pz.removeFromCart(product)">
+                            <i class="remove icon"></i>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <div class="ui left labeled big button" tabindex="0" ng-if="!pz.empty">
+        <a class="ui basic label overall-sum">
+            {{pz.total}} ₽
+        </a>
+        <button type="submit" class="ui right labeled icon big button teal" ng-click="pz.checkout()">
+            <i class="right arrow icon"></i>
+            Checkout
+        </button>
+    </div>
+    <div class="ui warning message" ng-if="pz.empty">
+        <div class="header">There're no products in your cart yet!</div>
+        <ul class="list">
+            <li>Go to <a href="#/products"> products page </a> and buy something!</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="breadcrumb_block">
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="#/products">Products</a></li>
+        <li class="active">{{pz.product.name}}</li>
+    </ul>
+</div>
+
+<div class="product-single row">
+    <div class="col-sm-6 col-md-4">
+        <img src="{{pz.product.image}}" class="product-item-image img-responsive" alt=""/>
+    </div>
+    <div class="col-sm-6 col-md-8">
+        <h1>{{pz.product.name}}</h1>
+        <div class="properties">
+            <strong>Price: </strong>
+            {{pz.product.cost}} ₽
+            <br>
+            <strong>Description: </strong>
+            {{pz.product.description}}
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-8 cart-area">
+                <div class="col-sm-12 price red">
+                    {{pz.product.cost}} ₽
+                </div>
+                <div class="col-sm-12 add-to-cart">
+                    <div class="ui action big input">
+                        <input type="number" class="add-to-cart-amount" name="quantity" min="1" value="1" placeholder="Amount"
+                               ng-model="number">
+                        <button class="ui green big button" ng-click="pz.addToCart(number)">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="cart-button-text">Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui pointing secondary menu">
+    <a class="item active">Description</a>
+</div>
+
+<div class="ui tab segment active" data-tab="1">
+    <div class="product-description">
+        {{pz.product.description}}
+    </div>
+</div>

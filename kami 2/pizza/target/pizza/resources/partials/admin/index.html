@@ -1,0 +1,39 @@
+<form class="form-horizontal" role="form">
+    <h2 class="form-signin-heading">Create product</h2>
+    <div class="form-group">
+        <label >Description</label>
+        <div class="col-md-5">
+            <input type="text" name="description" class="form-control" ng-model="pz.product.description" required autofocus>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <div class="col-md-5">
+            <input type="text" name="name" class="form-control" ng-model="pz.product.name" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Cost</label>
+        <div class="col-md-5">
+            <input type="number" name="price" class="form-control" ng-model="pz.product.cost" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Image link</label>
+        <div class="col-md-5">
+            <input type="text" name="img" class="form-control" ng-model="pz.product.image" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        <div class="col-md-5">
+            <select name="categoryId" class="form-control" ng-model="pz.product.category">
+                <option value="PIZZA">pizza</option>
+                <option value="COCKTAIL">cocktail</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="pz.addProduct()" >Add</button>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h3 class="modal-title">Order info</h3>
+</div>
+<div class="modal-body">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Пользователь</h3>
+        </div>
+        <div class="panel-body">
+            <p>Имя: {{pz.order.orderUserInfo.name}}</p><br>
+            <p>Телефон: {{pz.order.orderUserInfo.phone}}</p><br>
+            <p>Адрес: {{pz.order.orderUserInfo.address}}</p><br>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Товары</h3>
+        </div>
+        <div class="panel-body" ng-repeat="order in pz.order.orderDetails">
+            <p>Количество: {{order.number}}</p> <br>
+            <p>Продукт: {{order.product.name}}</p>
+            <hr>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="pz.ok()">Ok</button>
+</div>
+<script>
+</script>

@@ -1,0 +1,42 @@
+<div class="breadcrumb_block">
+    <ul class="breadcrumb">
+        <li><a href="#/">Home</a></li>
+        <li class="active"><a href="#/products">Products</a></li>
+    </ul>
+</div>
+
+<div class="ui pointing secondary menu">
+    <a class="item" ng-class="{'active': pz.activeTab == 1}" ng-click="pz.activeTab = 1;query=''">All</a>
+    <a class="item" ng-class="{'active': pz.activeTab == 2}" ng-click="pz.activeTab = 2;query='pizza'">Pizzas</a>
+    <a class="item" ng-class="{'active': pz.activeTab == 3}" ng-click="pz.activeTab = 3;query='cocktail'">Cocktails</a>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ui tab segment active">
+            <div class="products row">
+                <div class="product-item col-md-3 col-sm-4 col-xs-6 text-center" ng-repeat="product in pz.products | filter: { category: query }">
+
+                    <a href="#/products/{{product.id}}">
+                        <img src="{{product.image}}" class="product-item-image" alt=""/>
+                    </a>
+                    <hr>
+                    <a href="#/products/{{product.id}}" class="product-item-title">
+                        {{product.name}}
+                    </a>
+                    <div class="product-item-price">
+                        {{product.cost}} ₽
+                    </div>
+                        <button class="ui big button green product-button-cart" ng-click="pz.addToCart(product)">
+                            <i class="fa fa-shopping-cart"></i>
+                                <span>
+                                    Add to Cart
+                                </span>
+                        </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
